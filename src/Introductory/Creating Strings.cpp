@@ -4,14 +4,15 @@
 
 using namespace std;
 
-int fact(int n ) {
+int fact(int n) {
     if (n == 0) return 1;
     return n * fact(n - 1);
 }
 
-void createStrings(string s, string ans, map<char, int> mp) {
+
+void createStrings(string s, string ans, map<char, int>& mp) {
     if (ans.length() == s.length()) {
-        cout << ans << '\n';
+        cout << ans << endl;
         return;
     }
 
@@ -21,6 +22,7 @@ void createStrings(string s, string ans, map<char, int> mp) {
             createStrings(s, ans + p.first, mp);
             mp[p.first]++;
         }
+
     }
 }
 
@@ -33,12 +35,12 @@ int main() {
     }
 
     int ans = fact(n);
-    for (auto p : mp) {
+    for (auto& p : mp) {
         ans /= fact(p.second);
     }
-    cout << ans << '\n';
+
+    cout << ans << endl;
 
     createStrings(s, "", mp);
-
     return 0;
 }
