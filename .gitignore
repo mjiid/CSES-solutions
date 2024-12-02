@@ -3,3 +3,4 @@
 src/.idea
 src/.vscode
 CppProperties.json
+src/*/.idea
